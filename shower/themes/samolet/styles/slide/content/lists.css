@@ -35,10 +35,6 @@
     content: counter(list) '.';
 }
 
-.slide ul > li::before {
-    content: '•';
-}
-
 .slide ul > li:lang(ru)::before {
     content: '—';
 }

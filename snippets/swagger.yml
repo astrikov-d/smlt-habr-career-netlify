@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: News API - OpenAPI 3.0
+  contact:
+    email: d.astrikov@samolet.ru
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1
+externalDocs:
+  description: Узнайте больше о компании Самолет
+  url: https://career.samolet.ru
+servers:
+  - url: https://mocked.server/api/
+tags:
+  - name: news
+    description: API для взаимодействия с новостями и комментариями
+paths:
+  /news:
+    get:
+      tags:
+        - news
+      summary: Получить список новостей
+      operationId: getNews
+      responses:
+        '200':
+          description: Операция успешна
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/News'
+  /news/{id}/comments/add/:
+    post:
+      tags:
+        - news
+      summary: Добавить новый комментарий к новости
+      operationId: addComment
+      parameters:
+        - name: id
+          in: path
+          description: ID новости
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        '201':
+          description: Успешная операция
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      security:
+        - news_auth:
+            - write:comments
+components:
+  schemas:
+    News:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        text:
+          type: string
+          format: int64
+          example: "Пример текста новости"
+    Comment:
+      type: object
+      properties:
+        comment:
+          type: string
+          example: "Пример текста комментария"
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+      xml:
+        name: '##default'
+  securitySchemes:
+    news_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://mocked.server/oauth/authorize
+          scopes:
+            write:comments: добавление комментариев

@@ -1,0 +1,23 @@
+/* Cover */
+
+.cover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+}
+
+/* Fitting */
+
+.cover.w,
+.cover.width {
+    width: 100%;
+    max-height: none;
+}
+
+.cover.h,
+.cover.height {
+    height: 100%;
+    max-width: none;
+}

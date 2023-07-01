@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'CoFo Sans';
+    src: url(../fonts/CoFo_Sans-Medium.woff2) format('woff2');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'CoFo Sans';
+    src: url(../fonts/CoFo_Sans-Regular.woff2) format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'PT Mono';
+    font-display: swap;
+    src:
+        local('PT Mono'),
+        local('PTMono-Regular'),
+        url('../fonts/pt-mono-regular.woff2') format('woff2');
+}

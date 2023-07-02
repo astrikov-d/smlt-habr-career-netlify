@@ -251,11 +251,62 @@
 </section>
 
 <section class="slide">
+    <h3>Создаем наши интерфейсы и клиент:</h3>
     <pre style="font-size: 16px;">
         <code>wget https://api.server.com/swagger.yaml</code>
         <code>node generateApi</code>
         <code>api.ts generated..</code>
     </pre>
+    <h3>Проверяем наш код:</h3>
+    <pre style="font-size: 16px;">
+        <code>yarn type-check</code>
+        <code>Everything is OK..</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2 class="shout shrink" style="text-align: center">
+        <span style="font-size: 42px;">Ок, а что есть для бэкенда? 🤔</span>
+    </h2>
+</section>
+
+<section class="slide">
+    <h2>Property-based тестирование для нашего API</h2>
+    <ol>
+        <li class="next">👌 Практически бесплатные тесты</li>
+        <li class="next">📋 Покрытие ~100% эндпоинтов API</li>
+        <li class="next">🛠️ Кастомизация под нужды проекта</li>
+        <li class="next">🚀 Может работать как с REST так и с GraphQL</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 style="font-size: 32px;">Пример с использованием <code>schemathesis</code></h2>
+    <ol>
+        <li>👨‍💻 https://github.com/schemathesis/schemathesis</li>
+        <li>🛠️ Работает на основе <code>hypothesis</code></li>
+        <li>🤖️ Запускает сотни параметризованных тестов на основе OpenAPI</li>
+    </ol>
+    <pre style="font-size: 16px">
+        <code>import schemathesis</code>
+        <code>&nbsp;</code>
+        <code>schema = schemathesis.from_uri("https://example.schemathesis.io/openapi.json")</code>
+        <code>&nbsp;</code>
+        <code>@schema.parametrize()</code>
+        <code>def test_api(case):</code>
+        <code>    case.call_and_validate()</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2 style="font-size: 32px;">Advanced usage</h2>
+    <ol>
+        <li>🛠 Интеграция с <code>pytest</code></li>
+        <li>🛠 Rate limiting</li>
+        <li>🛠 Внешние и локальные OpenAPI схемы</li>
+        <li>🛠 Lazy loading для схем</li>
+        <li>🛠 Кастомизация генерации данных через <code>hypothesis</code></li>
+    </ol>
 </section>
 
 <section class="slide">
@@ -287,7 +338,7 @@
     </h2>
 </section>
 
-<section class="slide">
+<section class="slide" id="ending">
     <h2 style="line-height: 44px;">
         <span style="font-size: 42px; line-height: 44px;">
             Здесь могли бы быть ваши вопросы 🤔
@@ -297,6 +348,23 @@
     <p style="margin-bottom: 10px;">Дмитрий Астриков</p>
     <p style="margin-bottom: 10px;">CTO @ HR-Tech SMLT</p>
     <p>Telegram: <code>@dastrikov</code></p>
+    <figure>
+        <img class="cover" src="pictures/smlt_logo_sign_blue.svg">
+    </figure>
+    <style>
+        #ending img.cover {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #ending figure {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
 </section>
 
 <div class="progress"></div>

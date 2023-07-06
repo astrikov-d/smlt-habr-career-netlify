@@ -42,6 +42,10 @@
     width: var(--slide-width);
     height: var(--slide-height);
     background-color: white;
+    background-image: url('../../../../../pictures/smlt_logo_sign_white.svg');
+    background-position: 95% 95%;
+    background-size: 60px;
+    background-repeat: no-repeat;
 }
 
 /* Number */
